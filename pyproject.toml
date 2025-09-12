@@ -1,7 +1,7 @@
 [project]
-name = "quera-animation-toolbox"
+name = "quantum-animation-toolbox"
 version = "0.1.0"
-description = "Manim-powered animations for visualizing neutral atom moves in QuEra's hardware"
+description = "Manim-powered animations for visualizing quantum circuits and neutral atom moves in QuEra's hardware"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
