@@ -404,6 +404,138 @@ class HadamardGateScene(Scene):
 
 ### Classes
 
+## QuEra Styling Toolkit: `quera_colors.py`
+A drop-in helper-package that skins **Manim GL** with QuEra’s look-and-feel and a handful of higher-level animations.
+
+### Classes:
+**QuEraLogo(color, height, include_text)**  
+A lightweight SVG wrapper for the QuEra company logo. Accepts any color and can render either the simple “QuEra” mark or the full “QuEra Computing Inc” version.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `color` | `str` or `ManimColor` | `QUERA_PURPLE` | Hex string (`"#FF9900"`) or a Manim `Color` object. |
+| `height` | `float` | `QUERA_LOGO_HEIGHT` | Desired logo height in scene units. |
+| `include_text` | `bool` | `False` | `True` → full-text SVG • `False` → icon + “QuEra”. |
+
+Methods (inherited from **`SVGMobject`**)
+* `.set_color(new_color)` &nbsp;– change fill/stroke colour.  
+* `.set_height(h)` &nbsp;– resize while preserving aspect ratio.  
+* `.scale(factor)` &nbsp;– uniformly scale about the logo’s centre.  
+* `.shift(vector)` / `.move_to(point)` &nbsp;– translate.  
+* Any standard SVGMobject transform (rotate, flip, fade, etc.).
+
+> **File expectation** The class looks for  
+> `quera_logo.svg` (icon + wordmark) and `quera_logo_text.svg`  
+> (long “QuEra Computing Inc”) in your `vector_images/` folder.  
+
+**BackgroundColor(color, z_index)**  
+A full-screen rectangle that tints the entire scene background.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `color`   | `ManimColor` | `BLACK` | Solid fill colour behind every other mobject. |
+| `z_index` | `int`        | `-100` | Negative index places the panel *under* normal content. |  
+
+**QuEraSlideBG(self, key)**  
+This is how you set the background of your Manim scene to match the QuEra Slide templates, key argument goes from 1 to 6 for the following backgrounds:
+- slide_bg_00: Purple Title and Textbox
+![Background 0](raster_images/quera_bgs/slide_bg_00.png)
+- slide_bg_01: White Logo Blank
+![Background 1](raster_images/quera_bgs/slide_bg_01.png)
+- slide_bg_02: Dark Purple Title and space
+![Background 2](raster_images/quera_bgs/slide_bg_02.png)
+- slide_bg_03: Light Purple Blank
+![Background 3](raster_images/quera_bgs/slide_bg_03.png)
+- slide_bg_04: White Title and space
+![Background 4](raster_images/quera_bgs/slide_bg_04.png)
+- slide_bg_05: Dark Purple Blank
+![Background 5](raster_images/quera_bgs/slide_bg_05.png)
+
+**QueraBanner(self, color, direction)**
+Creates the QuEra logo packed into $\ket{Q}$ form, which can be expanded and contracted using methods
+
+Parameters:
+color - logo color, defaults to QUERA_PURPLE
+direction - direction to which the banner opens
+
+Methods:
+`create(run_time=1)` - draws folded $\ket{Q}$ logo dot by dot
+`expand(run_time=0.75)` - expands logo to $\ket{QuEra}$ in the direction specified by initialization
+`contract(run_time=0.75)` - undoes `expand()` and returns to $\ket{Q}$ form
+
+![QuEraLogoExpanding](example_videos/QuEraRevealScene.gif)
+```python
+class QuEraRevealScene(Scene):
+	def construct(self):
+		banner = QuEraBanner(color=QUERA_PURPLE, direction="center")
+		self.add(banner)
+		self.play(banner.create())
+		self.wait(0.3)
+		self.play(banner.expand())
+		self.wait()
+```
+
+![LeftRightCenter](example_videos/ExpandDirections.gif)
+```python
+class ExpandDirections(Scene):
+	def construct(self):
+		banner1 = QuEraBanner(color=QUERA_PURPLE, direction="left")
+		banner2 = QuEraBanner(color=QUERA_PURPLE, direction="center")
+		banner3 = QuEraBanner(color=QUERA_PURPLE, direction="right")
+		banner1.scale(0.5).shift(2*UP)
+		banner2.scale(0.5)
+		banner3.scale(0.5).shift(2*DOWN)
+
+		self.add(banner1, banner2, banner3)
+		self.play(banner1.appear(),banner2.appear(),banner3.appear())
+		self.wait(0.5)
+		self.play(banner1.expand(),banner2.expand(),banner3.expand())
+		self.wait(1)
+		self.play(banner1.contract(),banner2.contract(),banner3.contract())
+		self.wait(0.5)
+```
+
+**QueraScatter(self, color, height)**
+Creates a random arrangement of dots that when `form_logo()` is called transform into the QuEra logo.
+
+Methods:
+`form_logo(duration=2.0)` - Makes dots transform themselves into QuEra logo
+`form_logo(duration=2.0)` - Makes dots transform themselves into QuEra logo
+
+![QuEraLogoForm](example_videos/QuEraScatterScene.gif)
+```python
+class QuEraScatterScene(Scene):
+	def construct(self):
+		scatter = QuEraScatter(color=QUERA_PURPLE)
+		self.add(scatter)
+		self.wait(0.5)
+		self.play(scatter.form_logo())
+		self.wait(0.5)
+		self.play(scatter.unform_logo())
+		self.wait()
+```
+
+**BloqadeScatter(self, color, height)**
+Creates a random arrangement of dots that when `form_logo()` is called transform into the QuEra logo.
+
+Methods:
+`form_logo(duration=2.0)` - Makes dots transform themselves into QuEra logo
+`form_logo(duration=2.0)` - Makes dots transform themselves into QuEra logo
+
+![BloqadeLogoForm](example_videos/BloqadeScatterScene.gif)
+```python
+class BloqadeScatterScene(Scene):
+	def construct(self):
+		scatter = BloqadeScatter(color=QUERA_PURPLE)
+		self.add(scatter)
+		self.wait(0.5)
+		self.play(scatter.form_logo())
+		self.wait(0.5)
+		self.play(scatter.unform_logo())
+		self.wait()
+```
+
+
 
 
 
