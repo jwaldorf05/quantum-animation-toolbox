@@ -1,0 +1,73 @@
+[project]
+name = "quera-animation-toolbox"
+version = "0.1.0"
+description = "Manim-powered animations for visualizing neutral atom moves in QuEra's hardware"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "audioop-lts; python_version>='3.13'", # only pull this in for 3.13 and above
+    "manimgl>=1.7.2",
+    "manimpango>=0.6.0",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/quera_animation_toolbox"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+]
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+target-version = "py312"
+
+[tool.ruff.lint]
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+# Ignore star import, seems to be common in Manim.
+ignore = [
+    "F403",  # 'from module import *' used; unable to detect undefined names
+    "F405",  # Name may be undefined, or defined from star imports: module
+    "E741",  # Ambiguous variable name, (should move away this!)
+]
+
+[tool.pytest.ini_options]
+testpaths = "test/"
