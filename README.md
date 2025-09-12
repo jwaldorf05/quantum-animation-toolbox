@@ -22,7 +22,7 @@ manim_stuff/
 │   └── your_script.py
 ├── quera-animation-toolbox/
 │   └── src/
-│       └── quera_animation_toolbox/
+│       └── quantum_animation_toolbox/
 │           ├── quera_colors.py
 │           ├── quera_circuit_lib.py
 │           └── quera_qubit_lib.py
@@ -37,7 +37,7 @@ import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 lib_path = os.path.normpath(
-	os.path.join(current_dir, "..", "quera-animation-toolbox", "src", "quera_animation_toolbox")
+	os.path.join(current_dir, "..", "quera-animation-toolbox", "src", "quantum_animation_toolbox")
 )
 sys.path.append(lib_path)
 

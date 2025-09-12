@@ -13,7 +13,7 @@ from pathlib import Path
 # ── Set up paths to toolbox and demo sources ───────────────────────
 CURRENT = Path(__file__).resolve()
 ROOT = CURRENT.parent.parent
-SRC = ROOT / "src" / "quera_animation_toolbox"
+SRC = ROOT / "src" / "quantum_animation_toolbox"
 TESTS = ROOT / "tests"
 
 sys.path.insert(0, SRC.as_posix())

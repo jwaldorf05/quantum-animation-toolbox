@@ -1,7 +1,7 @@
 from manimlib import *
 
-from quera_animation_toolbox.quera_colors import *
-from quera_animation_toolbox.quera_circuit_lib import *
+from quantum_animation_toolbox.quera_colors import *
+from quantum_animation_toolbox.quera_circuit_lib import *
 
 
 

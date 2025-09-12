@@ -7,7 +7,7 @@ from pathlib import Path
 
 # 1)  toolbox src  (already in your snippet) ---------------------------
 HERE = Path(__file__).parent.resolve()
-SRC     = HERE / "src" / "quera_animation_toolbox"
+SRC     = HERE / "src" / "quantum_animation_toolbox"
 sys.path.insert(0, SRC.as_posix())
 
 from quera_colors    import *
