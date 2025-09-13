@@ -14,50 +14,35 @@ To see this package documentation, testing, and installation guides, check out o
 
 ## Installation
 
-To use, make sure that your files have this structure:
-```text
-manim_stuff/
-├── venv/                            # virtual environment
-├── project_folder/                  # contains your Manim script
-│   └── your_script.py
-├── quera-animation-toolbox/
-│   └── src/
-│       └── quantum_animation_toolbox/
-│           ├── quera_colors.py
-│           ├── quera_circuit_lib.py
-│           └── quera_qubit_lib.py
+Install from PyPI:
+
+```bash
+pip install quantum-animation-toolbox
 ```
 
 Then once you're in your script file add to the header:
 ```python
 from manimlib import *
 import numpy as np
-import sys
-import os
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-lib_path = os.path.normpath(
-	os.path.join(current_dir, "..", "quera-animation-toolbox", "src", "quantum_animation_toolbox")
-)
-sys.path.append(lib_path)
-
-from quera_colors import *
-from quera_qubit_lib import *
+import quantum_animation_toolbox as qat
 ```
 
 ## Testing
 
-This library contains tests to make sure that the classes work properly. In order to run these tests after installaction, enter a terminal window in your `quera-animation-toolbox` folder and run:
+This project includes a test suite to verify that all classes and animations behave correctly.
 
-```zsh
-python generate_control_frames.py 
+After installing the package in a virtual environment, install the developer extras:
+```bash
+pip install "quantum-animation-toolbox[dev]"
 ```
-followed by:
-```zsh
+
+Then run the tests with:
+```python
 pytest -q
 ```
 
 If you get a message saying "6 passed", you're all good to go!
+
 
 ## Qubit Visualization Toolkit: `quera_qubit_lib.py`
 
