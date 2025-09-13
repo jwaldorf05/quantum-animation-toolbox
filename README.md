@@ -19,6 +19,8 @@ I have also created my own Installation guides and Tutorials for ManimGL (Grant 
 
 **[ManimGL for Beginners](../../wiki/ManimGL-for-Beginners)**
 
+**[How to Use Manim Slides](../../wiki/How-to-Use-Manim-Slides)**
+
 ## Package Installation
 
 Install from PyPI:
