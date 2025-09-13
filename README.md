@@ -11,8 +11,15 @@ Thank you to [Grant Sanderson](https://github.com/3b1b) for creating the Manim f
 
 To see this package documentation, testing, and installation guides, check out our [wiki page](../../wiki).
 
+## ManimGL Setup and Tutorial
 
-## Installation
+I have also created my own Installation guides and Tutorials for ManimGL (Grant Sanderson Version) since I found the documentation to be a bit lacking:
+
+**[ManimGL Setup Guide (Mac)](../../wiki/ManimGL-Setup-Guide-%28Mac%29)**
+
+**[ManimGL for Beginners](../../wiki/ManimGL-for-Beginners)**
+
+## Package Installation
 
 Install from PyPI:
 
@@ -26,6 +33,8 @@ from manimlib import *
 import numpy as np
 import quantum_animation_toolbox as qat
 ```
+
+To see more details about the package installation process, check out the [Installation and Imports](../../wiki/Installation-and-Imports) page.
 
 ## Testing
 
